@@ -1,0 +1,26 @@
+.buttons{
+  width: 100%;
+  display: flex;
+  justify-content:space-around;
+  background-color: gray;
+  border-radius: 10px;
+  padding: 5px;
+  gap: 10px;
+  box-sizing: border-box;
+  
+    
+  .button{
+    border: none;
+    width: 100%;
+    border-radius: 10px;
+    color: gray;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .active{
+    color: white;
+    background-color: orange;
+    transition: 0.2s;
+  }
+}
