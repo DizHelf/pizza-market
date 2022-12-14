@@ -1,7 +1,7 @@
 import { AppDispatch} from ".."
 import axios from "../../axios"
 import { IPizza } from "../../modules/pizzaInterface"
-import {setPizzaError, setPizzaItem, setPizzaLoading, setPizzaWisible } from '../../store/splice/urlInfoSplice'
+import {setPizzaError, setPizzaItem, setPizzaLoading, setPizzaWisible, clearPizzaInfo} from '../../store/splice/urlInfoSplice'
 
 
 export const fetchPizzaUrl = (pizzaName: string) => {
@@ -19,19 +19,20 @@ export const fetchPizzaUrl = (pizzaName: string) => {
 } 
 };
 
-export const postPizzaItem = (pizzaItem:IPizza, size:string[], type:string[]) => {
+export const postPizzaItem = (pizzaItem:IPizza, size:string, type:string, price:number) => {
   return async (dispatch:AppDispatch) => {
     try {
         axios.post<void>("/cartPizza", {
           id: pizzaItem.id,
           name: pizzaItem.name,
           description: pizzaItem.description,
-          price: pizzaItem.price,
+          price: price ? price : pizzaItem.price[0],
           type,
           size,
           ingredients:pizzaItem.ingredients,
           path: pizzaItem.path
         }).then(() => {
+          dispatch(clearPizzaInfo());
           dispatch(setPizzaWisible(false))
         })
       }

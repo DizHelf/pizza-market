@@ -20,7 +20,7 @@ const PizzaCardItem:React.FC<PropsProduct> = ({item}) => {
   return(
     <>
       <div onClick={() => openPopUp(item.name)} className={style.pizza}>
-        <img onClick={() => openPopUp(item.name)} src={item.path} alt={item.name} className={style.img} />
+        <img src={item.path} alt={item.name} className={style.img} />
 
         <div className={style.pizzaInfo}>
             

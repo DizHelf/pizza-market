@@ -23,7 +23,7 @@ const HomePage:React.FC = () => {
     if (pizzaName) {
       dispatch(fetchPizzaUrl(pizzaName))
     }
-  }, [dispatch, pizzaName])
+  }, [pizzaName])
 
   
   return(

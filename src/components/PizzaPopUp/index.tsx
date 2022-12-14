@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { IPizza } from '../../modules/pizzaInterface';
 import style from "./PizzaPopUp.module.scss"
 
-import {setPizzaWisible, setPizzaSize, setPizzaType, setPizzaPrice } from '../../store/splice/urlInfoSplice'
+import {setPizzaWisible, setPizzaSize, setPizzaType, setPizzaPrice, clearPizzaInfo } from '../../store/splice/urlInfoSplice'
 import ButtonsPopUp from '../ButtonsPopUp';
 import { postPizzaItem } from '../../store/actions/urlInfoActions'
 
@@ -16,7 +16,14 @@ const PizzaPopUp:React.FC<PropsProduct> = ({pizzaItem}) => {
   const {pizzaSize, pizzaItem: staetPizzaItem, pizzaType, pizzaPrice} = useAppSelector((staet) => staet.urlInfoSplice)
   const dispatch = useAppDispatch()
 
+  React.useEffect(() => {
+    dispatch(setPizzaSize(pizzaItem.size[0]))
+    dispatch(setPizzaType(pizzaItem.types[0]))
+    dispatch(setPizzaPrice(pizzaItem.price[0]))
+  },[])
+
   const clearingPizzaCard = () => {
+    dispatch(clearPizzaInfo())
     dispatch(setPizzaWisible(false));
   }
 
@@ -33,13 +40,15 @@ const PizzaPopUp:React.FC<PropsProduct> = ({pizzaItem}) => {
   }
 
   const submitPizzaItem = () => {
-    dispatch(postPizzaItem(staetPizzaItem, pizzaSize, pizzaType))
+    dispatch(postPizzaItem(staetPizzaItem, pizzaSize, pizzaType, pizzaPrice))
   }
 
 
   return(
     <>
       <div className={style.popUp}>
+        <div onClick={() => dispatch(setPizzaWisible(false))} className={style.background}></div>
+
         <div className={style.card}>
           <img onClick={clearingPizzaCard} className={style.xImg} src="/img/svg/times.svg" alt="" />
 

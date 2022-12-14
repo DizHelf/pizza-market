@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { setTextRange } from 'typescript';
 import { IPizza } from '../../modules/pizzaInterface';
 
 
@@ -8,8 +9,8 @@ interface InitialState {
   pizzaLoading: boolean;
   pizzaError: string;
   pizzaWisible: boolean;
-  pizzaType: string[];
-  pizzaSize: string[];
+  pizzaType: string;
+  pizzaSize: string;
   pizzaPrice: number; 
 }
 
@@ -26,8 +27,8 @@ const initialState:InitialState = {
   },
   pizzaName: "",
   pizzaError: "",
-  pizzaType: [],
-  pizzaSize: [], 
+  pizzaType: "",
+  pizzaSize: "", 
   pizzaPrice: 0,
   pizzaLoading: false,
   pizzaWisible: false,
@@ -53,17 +54,23 @@ const urlInfoSplice = createSlice({
       state.pizzaWisible = actions.payload;
     },
     setPizzaSize: (state, actions: PayloadAction<string>) => {
-      state.pizzaSize[0] = actions.payload;
+      state.pizzaSize = actions.payload;
     },
     setPizzaType: (state, actions: PayloadAction<string>) => {
-      state.pizzaType[0] = actions.payload;
+      state.pizzaType = actions.payload;
     },
     setPizzaPrice: (state, actions: PayloadAction<number>) => {
       state.pizzaPrice = state.pizzaItem.price[actions.payload];
     },
+    clearPizzaInfo: (state) => {
+      state.pizzaSize = "";
+      state.pizzaType = "";
+      state.pizzaPrice = 0;
+      state.pizzaName = "";
+    }
   }
 })
 
-export const { setPizzaName, setPizzaItem, setPizzaError, setPizzaLoading, setPizzaWisible, setPizzaSize, setPizzaType, setPizzaPrice } = urlInfoSplice.actions
+export const { setPizzaName, setPizzaItem, setPizzaError, setPizzaLoading, setPizzaWisible, setPizzaSize, setPizzaType, setPizzaPrice,clearPizzaInfo } = urlInfoSplice.actions
 
 export default urlInfoSplice.reducer
