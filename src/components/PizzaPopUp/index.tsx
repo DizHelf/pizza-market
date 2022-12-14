@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { IPizza } from '../../modules/pizzaInterface';
 import style from "./PizzaPopUp.module.scss"
 
-import { setClearing, setPizzaWisible, setPizzaSize, setPizzaType } from '../../store/splice/urlInfoSplice'
+import {setPizzaWisible, setPizzaSize, setPizzaType, setPizzaPrice } from '../../store/splice/urlInfoSplice'
 import ButtonsPopUp from '../ButtonsPopUp';
 import { postPizzaItem } from '../../store/actions/urlInfoActions'
 
@@ -13,12 +13,11 @@ interface PropsProduct {
 
 const PizzaPopUp:React.FC<PropsProduct> = ({pizzaItem}) => {
 
-  const {pizzaSize, pizzaItem: staetPizzaItem, pizzaType} = useAppSelector((staet) => staet.urlInfoSplice)
+  const {pizzaSize, pizzaItem: staetPizzaItem, pizzaType, pizzaPrice} = useAppSelector((staet) => staet.urlInfoSplice)
   const dispatch = useAppDispatch()
 
   const clearingPizzaCard = () => {
     dispatch(setPizzaWisible(false));
-    dispatch(setClearing());
   }
 
   const setSize = (el:string) => {
@@ -27,6 +26,10 @@ const PizzaPopUp:React.FC<PropsProduct> = ({pizzaItem}) => {
 
   const setType = (el:string) => {
     dispatch(setPizzaType(el));
+  }
+
+  const setPrice = (i:number) => {
+    dispatch(setPizzaPrice(i));
   }
 
   const submitPizzaItem = () => {
@@ -50,11 +53,11 @@ const PizzaPopUp:React.FC<PropsProduct> = ({pizzaItem}) => {
             <p className={style.subTitle}>{pizzaItem.description}</p>
 
             <div className={style.buttons}>
-              <ButtonsPopUp el={pizzaItem.size} setActiveButton={setSize}/>
-              <ButtonsPopUp el={pizzaItem.types} setActiveButton={setType}/>
+              <ButtonsPopUp size={pizzaItem.size} setActiveButton={setSize} updatePriceNumber={setPrice}/>
+              <ButtonsPopUp size={pizzaItem.types} setActiveButton={setType}/>
             </div>
 
-            <button onClick={submitPizzaItem} className={style.buttoAcept}>Добавить</button>
+            <button onClick={submitPizzaItem} className={style.buttoAcept}>Добавить {pizzaPrice ? pizzaPrice : pizzaItem.price[0]}Р</button>
 
           </div>
         </div>

@@ -19,19 +19,19 @@ const PizzaCardItem:React.FC<PropsProduct> = ({item}) => {
   
   return(
     <>
-      <div className={style.pizza}>
+      <div onClick={() => openPopUp(item.name)} className={style.pizza}>
         <img onClick={() => openPopUp(item.name)} src={item.path} alt={item.name} className={style.img} />
 
         <div className={style.pizzaInfo}>
             
             <div className={style.info}>
               <div className={style.title}>{item.name}</div>
-              <div >{item.description}</div>
+              <p className={style.description}>{item.description}</p>
             </div>
 
             <div className={style.bay}>
-              <div className={style.price}>{item.price}</div>
-              <button onClick={() => openPopUp(item.name)} className={style.button}>Выбрать</button>
+              <div className={`${style.price} ${style.buttonPrice}`}>от {item.price[0]}Р</div>
+              <button className={style.button}>Выбрать</button>
             </div>
         </div>
         

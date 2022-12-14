@@ -9,7 +9,8 @@ interface InitialState {
   pizzaError: string;
   pizzaWisible: boolean;
   pizzaType: string[];
-  pizzaSize: string[]; 
+  pizzaSize: string[];
+  pizzaPrice: number; 
 }
 
 const initialState:InitialState = {
@@ -17,7 +18,7 @@ const initialState:InitialState = {
     id: "",
     name: "",
     description: "",
-    price: 0,
+    price: [],
     types:[],
     size: [],
     ingredients: [],
@@ -27,6 +28,7 @@ const initialState:InitialState = {
   pizzaError: "",
   pizzaType: [],
   pizzaSize: [], 
+  pizzaPrice: 0,
   pizzaLoading: false,
   pizzaWisible: false,
 }
@@ -50,28 +52,18 @@ const urlInfoSplice = createSlice({
     setPizzaWisible: (state, actions: PayloadAction<boolean>) => {
       state.pizzaWisible = actions.payload;
     },
-    setClearing: (state) => {
-      state.pizzaItem = {
-        id: "",
-        name: "",
-        description: "",
-        price: 0,
-        types:[],
-        size: [],
-        ingredients: [],
-        path: ""
-      };
-      state.pizzaName = ""
-    },
     setPizzaSize: (state, actions: PayloadAction<string>) => {
       state.pizzaSize[0] = actions.payload;
     },
     setPizzaType: (state, actions: PayloadAction<string>) => {
       state.pizzaType[0] = actions.payload;
     },
+    setPizzaPrice: (state, actions: PayloadAction<number>) => {
+      state.pizzaPrice = state.pizzaItem.price[actions.payload];
+    },
   }
 })
 
-export const { setPizzaName, setPizzaItem, setPizzaError, setPizzaLoading, setPizzaWisible, setClearing, setPizzaSize, setPizzaType } = urlInfoSplice.actions
+export const { setPizzaName, setPizzaItem, setPizzaError, setPizzaLoading, setPizzaWisible, setPizzaSize, setPizzaType, setPizzaPrice } = urlInfoSplice.actions
 
 export default urlInfoSplice.reducer

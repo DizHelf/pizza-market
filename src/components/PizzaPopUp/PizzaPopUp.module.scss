@@ -1,24 +1,110 @@
+// .popUp{
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   width: 100%;
+//   background-color: rgba(0, 0, 0, 0.3);
+//   display: flex;
+//   align-items: center;
+
+//   .card{
+//     padding: 20px;
+//     height: 70%;
+//     width: 50%;
+//     margin: 0 auto ;
+//     background-color: white;
+//     border-radius: 30px;
+//     position: relative;
+//     display: grid;
+//     grid-template-columns: 60% 40%;
+//     box-sizing: border-box;
+//   }
+
+//   .xImg{
+//     width: 20px;
+//     height: 20px;
+//     position: absolute;
+//     top: 20px;
+//     right: 20px;
+//     cursor: pointer;
+//   }
+
+//   .img{
+//     width: 100%;
+//     padding: 20px;
+//     box-sizing: border-box;
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   .pizzaImg{
+//     width: 80%;
+//     margin: 0 auto ;
+//   }
+
+//   .info{
+//     padding: 20px;
+//     display: flex;
+//     flex-direction: column;
+//   }
+
+//   .buttons{
+//     display: flex;
+//     flex-direction: column;
+//     gap: 20px;
+//   }
+
+//   .buttoAcept{
+//     margin: auto auto 0;
+//     border: none;
+//     border-radius: 3px;
+//     background-color: rgba(255, 165, 0, 0.4);
+//     width: 70%;
+//     padding: 20px;
+//     font-size: 16px;
+//     cursor: pointer;
+//     transition: 0.3s;
+
+//     &:hover{
+//       background-color: orange;
+//     }
+//   }
+
+//   @media screen and (max-width: 1435px) {
+//     .card{
+//       grid-template-columns: 40% 60%;
+//       height: 50%;
+//     }
+//   }
+// }
+
 .popUp{
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: white;
+  z-index: 100;
+  box-sizing: border-box;
   display: flex;
-  align-items: center;
+  justify-content: center;
 
   .card{
     padding: 20px;
-    height: 70%;
-    width: 50%;
-    margin: 0 auto ;
-    background-color: white;
-    border-radius: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    display: grid;
-    grid-template-columns: 60% 40%;
-    box-sizing: border-box;
+    max-width: 350px;
+    background-color: white;
+  }
+
+  .info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .xImg{
@@ -31,22 +117,21 @@
   }
 
   .img{
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
     display: flex;
-    align-items: center;
+    width: 100%;
+    justify-content: center;
   }
 
   .pizzaImg{
-    width: 80%;
-    margin: 0 auto ;
+    max-width: 100%;
   }
 
-  .info{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+  .title{
+    text-align: center;
+  }
+
+  .subTitle{
+    text-align: center;
   }
 
   .buttons{
@@ -56,9 +141,9 @@
   }
 
   .buttoAcept{
-    margin: auto auto 0;
+    margin: 10px auto 0;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     background-color: rgba(255, 165, 0, 0.4);
     width: 70%;
     padding: 20px;
@@ -70,4 +155,24 @@
       background-color: orange;
     }
   }
+
+  @media screen and (min-width: 767px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card{
+      height: auto;
+      border-radius: 5px;
+    }
+  }
+    
 }

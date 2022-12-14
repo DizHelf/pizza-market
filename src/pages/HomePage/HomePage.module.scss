@@ -7,13 +7,7 @@
     margin: 0 auto ;
   }
 
-  @media screen and (min-width: 500px) {
-    grid-template-columns: repeat(2, 1fr);
 
-    & > *{
-      margin: 0 auto 20px ;
-    }
-  }
 
   @media screen and (min-width: 767px) {
     grid-template-columns: repeat(3, 1fr);

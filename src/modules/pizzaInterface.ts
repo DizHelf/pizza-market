@@ -2,7 +2,7 @@ export interface IPizza {
   id: string,
   name: string,
   description: string,
-  price: number,
+  price: number[],
   types:string[] ,
   size: string[]
   ingredients: string[],
