@@ -13,7 +13,9 @@ const Header:React.FC = () => {
           <nav className={style.nav}>
             <ul className={style.list}>
               <li className={style.item}>
-                <img className={style.cart} src="/img/svg/cart.svg" alt="cart" />
+                <Link to={"/cart"}>
+                  <img className={style.cart} src="/img/svg/cart.svg" alt="cart" />
+                </Link>
               </li>
               <li className={style.item}>
                 <Link className={style.login} to={"/autharization"}>Войти</Link>

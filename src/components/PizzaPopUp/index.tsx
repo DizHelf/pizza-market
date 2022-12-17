@@ -20,7 +20,7 @@ const PizzaPopUp:React.FC<PropsProduct> = ({pizzaItem}) => {
     dispatch(setPizzaSize(pizzaItem.size[0]))
     dispatch(setPizzaType(pizzaItem.types[0]))
     dispatch(setPizzaPrice(pizzaItem.price[0]))
-  },[])
+  }, [])
 
   const clearingPizzaCard = () => {
     dispatch(clearPizzaInfo())
@@ -47,7 +47,7 @@ const PizzaPopUp:React.FC<PropsProduct> = ({pizzaItem}) => {
   return(
     <>
       <div className={style.popUp}>
-        <div onClick={() => dispatch(setPizzaWisible(false))} className={style.background}></div>
+        <div onClick={() => dispatch(clearingPizzaCard)} className={style.background}></div>
 
         <div className={style.card}>
           <img onClick={clearingPizzaCard} className={style.xImg} src="/img/svg/times.svg" alt="" />
