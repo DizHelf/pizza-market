@@ -5,9 +5,11 @@ import style from "./App.module.scss"
 
 import HomePage from './pages/HomePage';
 import Header from './components/Header';
+import CardPage from './pages/CartPage';
 
 
 function App() {
+  
 
   return (
     <>
@@ -17,7 +19,7 @@ function App() {
         <div className={style.container}>
           <Routes>
             <Route path='/' element={<HomePage/>}/>
-            <Route path='/ewq' element={<div>321</div>}/>
+            <Route path='/cart' element={<CardPage/>}/>
           </Routes>
         </div>
       </div>

@@ -3,11 +3,10 @@
   grid-template-columns: 1fr;
   gap: 40px;
 
+
   & > *{
     margin: 0 auto ;
   }
-
-
 
   @media screen and (min-width: 767px) {
     grid-template-columns: repeat(3, 1fr);
@@ -24,4 +23,38 @@
       margin: 0 auto 20px ;
     }
   }
+}
+
+.louder{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    & > *{
+      margin: 0 auto 20px ;
+    }
+  }
+
+  @media screen and (min-width: 767px) {
+    grid-template-columns: repeat(3, 1fr);
+
+    & > *{
+      margin: 0 auto 20px ;
+    }
+  }
+
+  @media screen and (min-width: 1023px) {
+    grid-template-columns: repeat(4, 1fr);
+
+    & > *{
+      margin: 0 auto 20px ;
+    }
+  }
+}
+
+.pagination{
+  margin-top: 30px;
 }

@@ -1,0 +1,56 @@
+.CartItem{
+  display: flex;
+  justify-content: space-between;
+  height: 110px;
+
+
+  .info{
+    display: flex;
+    gap: 20px;
+  }
+
+  img{
+    height: 80%;
+  }
+
+  .textInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .priceAndButton{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .button{
+    background-color: rgba(255, 0, 0, 0.7);
+    height: 50px;
+    padding: 0px 20px 0px 20px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    
+    &:hover{
+      transform: translate(0,-2px);
+      transition: 0.3s;
+    }
+  }
+
+  .price{
+    padding: 0px 20px;
+    background-color: orange;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+}
