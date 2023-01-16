@@ -6,6 +6,7 @@ import style from "./PizzaPopUp.module.scss"
 import {setPizzaWisible, setPizzaSize, setPizzaType, setPizzaPrice, clearPizzaInfo } from '../../store/splice/urlInfoSplice'
 import ButtonsPopUp from '../ButtonsPopUp';
 import { postPizzaItem } from '../../store/actions/urlInfoActions'
+import { setPizzaName } from '../../store/splice/filterSplice'
 
 interface PropsProduct {
   pizzaItem: IPizza 
@@ -25,6 +26,7 @@ const PizzaPopUp:React.FC<PropsProduct> = ({pizzaItem}) => {
   const clearingPizzaCard = () => {
     dispatch(clearPizzaInfo())
     dispatch(setPizzaWisible(false));
+    dispatch(setPizzaName(""))
   }
 
   const setSize = (el:string) => {

@@ -1,23 +1,32 @@
 import React from 'react';
+import ReacrDom from "react-dom"
 import ReactPaginate from 'react-paginate';
 import style from './Pagination.module.scss';
 
+
 import { useAppDispatch, useAppSelector } from '../../hooks'
-import { fetchPage } from '../../store/splice/pizzaItemsSplice'
+import { setPage } from '../../store/splice/filterSplice'
 
 
 const Pagination:React.FC = () => {
 
   const dispath = useAppDispatch();
-  const { page } = useAppSelector((state) => state.pizzaItemsSplice)
+  const { page } = useAppSelector((state) => state.filterSplice)
+  const [pageNamber, setPageNamber] = React.useState(page)
+
+  React.useEffect(() => {
+    setPageNamber(page)
+  }, [page])
+
 
   return(
     <>
       <ReactPaginate
+        onClick={(event)=>console.log(event.nextSelectedPage)}
         className={style.root}
         breakLabel="..."
         nextLabel=">"
-        onPageChange={event => dispath(fetchPage(event.selected + 1))}
+        onPageChange={event => dispath(setPage(event.selected + 1))}
         pageRangeDisplayed={8}
         pageCount={3}
         previousLabel="<"
@@ -25,7 +34,7 @@ const Pagination:React.FC = () => {
         pageLinkClassName="paginationLinck"
         previousLinkClassName="previousLinkClassName"
         nextLinkClassName="nextLinkClassName"
-        initialPage={page-1}
+        forcePage={pageNamber-1}
       />
     </>
   );

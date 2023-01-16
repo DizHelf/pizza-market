@@ -1,13 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import style from "./Header.module.scss"
+import { useAppDispatch } from '../../hooks'
+import { resetInfo } from '../../store/splice/filterSplice'
 
 const Header:React.FC = () => {
+
+  const dispatch = useAppDispatch();
+
+  const clickLogoImg = () => {
+    dispatch(resetInfo())
+  }
+
   return(
     <>
       <div className={style.header}>
         <div className={style.container}>
-          <Link to={"/"}>
+          <Link onClick={clickLogoImg} to={"/"}>
             <img src="/img/pizzaLogo.png" alt="pizzaLogo" className={style.img} />
           </Link>
           <nav className={style.nav}>
@@ -18,7 +27,7 @@ const Header:React.FC = () => {
                 </Link>
               </li>
               <li className={style.item}>
-                <Link className={style.login} to={"/autharization"}>Войти</Link>
+                <Link className={style.login} to={"/form/auth"}>Войти</Link>
               </li>
             </ul>
           </nav>

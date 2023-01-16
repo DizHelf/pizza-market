@@ -2,7 +2,7 @@ import React from "react"
 import { IPizza } from "../../modules/pizzaInterface"
 import style from "./pizzaCardItem.module.scss"
 import { useAppDispatch } from "../../hooks"
-import { setPizzaName } from '../../store/splice/urlInfoSplice'
+import { setPizzaName } from '../../store/splice/filterSplice'
 
 interface PropsProduct {
   item: IPizza;

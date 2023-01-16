@@ -27,7 +27,7 @@ const CartItem:React.FC<PropsProduct> = ({item}) => {
             <img className={style.img} src={item.path} alt={item.name} />
             <div className={style.textInfo}>
               <h3 className={style.title}>{item.name}</h3>
-              <p className={style.subTitle}>{item.description}</p>
+              <p className={style.subTitle}>size:{item.size} type:{item.type}</p>
             </div>
           </div>
           <div className={style.priceAndButton}>

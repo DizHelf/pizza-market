@@ -4,7 +4,6 @@ import { IPizza } from '../../modules/pizzaInterface';
 
 
 interface InitialState {
-  pizzaName: string;
   pizzaItem: IPizza;
   pizzaLoading: boolean;
   pizzaError: string;
@@ -25,7 +24,6 @@ const initialState:InitialState = {
     ingredients: [],
     path: ""
   },
-  pizzaName: "",
   pizzaError: "",
   pizzaType: "",
   pizzaSize: "", 
@@ -38,9 +36,6 @@ const urlInfoSplice = createSlice({
   name: 'aeroportSplice',
   initialState,
   reducers: {
-    setPizzaName: (state, actions: PayloadAction<string>) => {
-      state.pizzaName = actions.payload
-    },
     setPizzaItem: (state, actions: PayloadAction<IPizza>) => {
       state.pizzaItem = actions.payload
     },
@@ -66,11 +61,10 @@ const urlInfoSplice = createSlice({
       state.pizzaSize = "";
       state.pizzaType = "";
       state.pizzaPrice = 0;
-      state.pizzaName = "";
     }
   }
 })
 
-export const { setPizzaName, setPizzaItem, setPizzaError, setPizzaLoading, setPizzaWisible, setPizzaSize, setPizzaType, setPizzaPrice,clearPizzaInfo } = urlInfoSplice.actions
+export const { setPizzaItem, setPizzaError, setPizzaLoading, setPizzaWisible, setPizzaSize, setPizzaType, setPizzaPrice,clearPizzaInfo } = urlInfoSplice.actions
 
 export default urlInfoSplice.reducer

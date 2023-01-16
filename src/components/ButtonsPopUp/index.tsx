@@ -21,7 +21,6 @@ const ButtonsPopUp:React.FC<PropsProduct> = ({size, setActiveButton, updatePrice
   const setProrsParent = (el:string, i:number) => {
     updateActiveButton(el);
     if (updatePriceNumber) {
-      console.log(1);
       updatePriceNumber(i)
     }
   }

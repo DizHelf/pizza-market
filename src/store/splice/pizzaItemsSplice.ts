@@ -5,7 +5,6 @@ interface IInitialState {
   loading: boolean;
   items: IPizza[];
   error: string;
-  page: number;
   paginationItems: number;
 }
 
@@ -13,7 +12,6 @@ const initialState:IInitialState = {
   loading: false,
   items: [],
   error: "",
-  page: 1,
   paginationItems: 8,
 }
 
@@ -30,12 +28,9 @@ const pizzaSplice = createSlice({
     fetchItems: (state, actions: PayloadAction<IPizza[]>) => {
       state.items = actions.payload
     },
-    fetchPage: (state, actions: PayloadAction<number>) => {
-      state.page = actions.payload;
-    }
   }
 })
 
-export const { setLoading, fetchError, fetchItems, fetchPage } = pizzaSplice.actions
+export const { setLoading, fetchError, fetchItems } = pizzaSplice.actions
 
 export default pizzaSplice.reducer

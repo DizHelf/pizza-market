@@ -14,7 +14,7 @@ export interface IResponcePizza{
   name: string,
   description: string,
   price: number,
-  types:string,
+  type:string,
   size: string,
   ingredients: string[],
   path: string
